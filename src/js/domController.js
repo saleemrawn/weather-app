@@ -1,9 +1,11 @@
 import { weatherService } from "./weather.js";
 import { format } from "date-fns";
+import { importAllImages } from "./helpers.js";
 
 export function addTodayForecastToDOM() {
   const container = document.querySelector(".today-weather-container");
   const today = weatherService.getTodayForecast();
+  const images = importAllImages(require.context("../img", false, /\.(png|jpe?g|svg)$/));
 
   container.innerHTML = "";
 
@@ -14,7 +16,9 @@ export function addTodayForecastToDOM() {
     <p>Today</p>
     <p>${today.tempmax}</p>
     <h1>${weatherService.getLocationName()}</h1>
-    <p><img class="${today.icon}" alt="${today.icon}" />${weatherService.getTodayDescription()}</p>
+    <p><img src="${images[`${today.icon}.svg`]}" class="weather-icon ${today.icon}" alt="${
+      today.icon
+    }" />${weatherService.getTodayDescription()}</p>
     </div>
     <div class="today-bottom-row">
         <div class="temp-feel">
@@ -37,6 +41,7 @@ export function addTodayForecastToDOM() {
 export function addSevenDayForecastToDOM() {
   const container = document.querySelector(".forecast-weather-container");
   const days = weatherService.getSevenDayForecast();
+  const images = importAllImages(require.context("../img", false, /\.(png|jpe?g|svg)$/));
 
   container.innerHTML = "";
 
@@ -49,7 +54,7 @@ export function addSevenDayForecastToDOM() {
           <p>${format(new Date(day.datetime), "EEE co")}</p>
         </div>
         <div class="weather-icon">
-          <img class="${day.icon}" alt="${day.icon}">
+          <img src="${images[`${day.icon}.svg`]}" class="weather-icon ${day.icon}" alt="${day.icon}" />
         </div>
         <div class="temp">
           <p>${day.temp}</p>
