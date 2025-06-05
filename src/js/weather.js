@@ -13,6 +13,7 @@ export const weatherService = (function () {
         const data = await response.json();
         setForecastData(data);
         saveDataToStorage("weatherData", data);
+        saveDataToStorage("weatherLocation", data.resolvedAddress);
         return;
       }
 
