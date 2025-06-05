@@ -3,19 +3,24 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Restaurant Page</title>
+    <script src="https://kit.fontawesome.com/5a35841989.js" crossorigin="anonymous"></script>
+    <title>Weather App</title>
   </head>
   <body>
     <header>
-      <div class="logo">Savory & Sweet</div>
-      <nav>
-        <button class="home-btn selected">Home</button>
-        <button class="menu-btn">Menu</button>
-        <button class="about-btn">About</button>
-      </nav>
+      <div class="logo-container">
+        <p class="logo">Weather App</p>
+      </div>
+      <form id="weather-form">
+        <input type="search" id="search" name="search" placeholder="Search location..." />
+        <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+      </form>
     </header>
     <main>
-      <div id="content"></div>
+      <div class="weather-info">
+        <div class="today-weather-container"></div>
+        <div class="forecast-weather-container"></div>
+      </div>
     </main>
   </body>
 </html>
