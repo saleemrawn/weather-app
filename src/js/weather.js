@@ -11,8 +11,8 @@ export const weatherService = (function () {
     try {
       if (response.status === 200) {
         const data = await response.json();
-        setForecastData(val);
-        saveDataToStorage(data);
+        setForecastData(data);
+        saveDataToStorage("weatherData", data);
         return;
       }
 
