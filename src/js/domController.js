@@ -20,28 +20,28 @@ export function addTodayForecastToDOM() {
     <div class="today-bottom-row">
       <div class="today-bottom-left-col">
         <div class="today-temp">${today.tempmax}</div>
-        <div class="today-description"><img src="${images[`${today.icon}.svg`]}" class="weather-icon ${
+        <div class="today-description"><img src="${images[`${today.icon}.svg`]}" class="today-weather-icon ${
       today.icon
     }" alt="${today.icon}" />${weatherService.getTodayDescription()}
         </div>
       </div>
 
       <div class="today-bottom-right-col">
-        <div class="temp-feel">
-          <div class="temp-feel-value">${today.feelslikemax}</div>
-          <div class="temp-feel-label">Temp. feels like</div>
+        <div class="today-data-container">
+          <div class="today-data-value">${today.feelslikemax}</div>
+          <div class="today-data-label">Temp. feels like</div>
         </div>
-        <div class="precip">
-           <div class="precip-value">${today.precipprob}%</div>
-           <div class="precip-label">Chance of precipitation</div>
+        <div class="today-data-container">
+           <div class="today-data-value">${today.precipprob}%</div>
+           <div class="today-data-label">Chance of precipitation</div>
         </div>
-        <div class="humidity">
-          <div class="humidity-value">${today.humidity}%</div>
-          <div class="humidity-label">Humidity</div>
+        <div class="today-data-container">
+          <div class="today-data-value">${today.humidity}%</div>
+          <div class="today-data-label">Humidity</div>
         </div>
-        <div class="visibility">
-          <div class="visibility-value">${today.visibility}</div>
-          <div class="visibility-label">Visibility</div>
+        <div class="today-data-container">
+          <div class="today-data-value">${today.visibility}</div>
+          <div class="today-data-label">Visibility</div>
         </div>
       </div>
 
