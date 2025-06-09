@@ -1,5 +1,4 @@
 .forecast-weather-container {
-  gap: 0.5rem;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto 1fr;
@@ -9,6 +8,7 @@
   display: grid;
   grid-template-rows: 1fr;
   grid-template-columns: repeat(auto-fill, minmax(22.5rem, 1fr));
+  gap: 0.5rem;
 }
 
 .forecast-weather-container h2 {
