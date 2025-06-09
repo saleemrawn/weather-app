@@ -70,15 +70,15 @@ export function addSevenDayForecastToDOM() {
           <img src="${images[`${day.icon}.svg`]}" class="weather-icon ${day.icon}" alt="${day.icon}" />
         </div>
         <div class="temp">${day.temp}</div>
-        <div class="temp-feel">
+        <div class="forecast-data-container">
           <div class="forecast-card-title">Temp. feels like</div>
           <div class="forecast-card-value">${day.feelslikemax}</div>
         </div>
-        <div class="precip">
+        <div class="forecast-data-container">
           <div class="forecast-card-title">Chance of precipitation</div>
           <div class="forecast-card-value">${day.precipprob}%</div>
         </div>
-        <div class="humidity">
+        <div class="forecast-data-container">
           <div class="forecast-card-title">Humidity</div>
           <div class="forecast-card-value">${day.humidity}%</div>
         </div>
