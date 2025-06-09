@@ -65,11 +65,11 @@ export function addSevenDayForecastToDOM() {
       "beforeend",
       `
       <div class="forecast-card">
-        <div class="date">${format(new Date(day.datetime), "EEE do")}</div>
+        <div class="forecast-date">${format(new Date(day.datetime), "EEE do")}</div>
         <div class="weather-icon">
           <img src="${images[`${day.icon}.svg`]}" class="weather-icon ${day.icon}" alt="${day.icon}" />
         </div>
-        <div class="temp">${day.temp}</div>
+        <div class="forecast-temp">${day.temp}</div>
         <div class="forecast-data-container">
           <div class="forecast-card-title">Temp. feels like</div>
           <div class="forecast-card-value">${day.feelslikemax}</div>
