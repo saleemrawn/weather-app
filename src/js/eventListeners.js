@@ -1,4 +1,9 @@
-import { addSevenDayForecastToDOM, addTodayForecastToDOM, setSearchInputValue } from "./domController.js";
+import {
+  addForecastButtonsToDOM,
+  addSevenDayForecastToDOM,
+  addTodayForecastToDOM,
+  setSearchInputValue,
+} from "./domController.js";
 import { getDataFromStorage } from "./storage.js";
 import { weatherService } from "./weather.js";
 
@@ -9,6 +14,7 @@ export async function loadApp() {
   setSearchInputValue(weatherService.getLocationName());
   addTodayForecastToDOM();
   addSevenDayForecastToDOM();
+  addForecastButtonsToDOM();
 }
 
 form.addEventListener("submit", (e) => {

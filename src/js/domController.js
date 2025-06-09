@@ -88,6 +88,19 @@ export function addSevenDayForecastToDOM() {
   });
 }
 
+export function addForecastButtonsToDOM() {
+  const container = document.querySelector(".forecast-weather-container");
+  container.insertAdjacentHTML(
+    "afterbegin",
+    `
+    <div class="forecast-buttons">
+      <button type="button">Hourly</button>
+      <button type="button">7-Day Outlook</button>
+    </div>
+    `
+  );
+}
+
 export function setSearchInputValue(val) {
   const search = document.getElementById("search");
   search.value = val;
