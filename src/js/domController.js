@@ -13,7 +13,7 @@ export function addTodayForecastToDOM() {
     "beforeend",
     `
     <div class="today-top-row">
-      <div class="today-date">${format(new Date(today.datetime), "EEEE co MMMM")}</div>
+      <div class="today-date">${format(new Date(today.datetime), "EEEE do MMMM")}</div>
       <div class="today-location-name">${weatherService.getLocationName()}</div>
     </div>
 
@@ -66,7 +66,7 @@ export function addSevenDayForecastToDOM() {
       `
       <div class="forecast-card">
         <div class="date">
-          <p>${format(new Date(day.datetime), "EEE co")}</p>
+          <p>${format(new Date(day.datetime), "EEE do")}</p>
         </div>
         <div class="weather-icon">
           <img src="${images[`${day.icon}.svg`]}" class="weather-icon ${day.icon}" alt="${day.icon}" />
