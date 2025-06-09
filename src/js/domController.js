@@ -19,7 +19,7 @@ export function addTodayForecastToDOM() {
 
     <div class="today-bottom-row">
       <div class="today-bottom-left-col">
-        <div class="today-temp">${today.tempmax}</div>
+        <div class="today-temp">${today.tempmax}<sup>&#176;F</sup></div>
         <div class="today-description"><img src="${images[`${today.icon}.svg`]}" class="today-weather-icon ${
       today.icon
     }" alt="${today.icon}" />${weatherService.getTodayDescription()}
@@ -28,7 +28,7 @@ export function addTodayForecastToDOM() {
 
       <div class="today-bottom-right-col">
         <div class="today-data-container">
-          <div class="today-data-value">${today.feelslikemax}</div>
+          <div class="today-data-value">${today.feelslikemax}<sup>&#176;F</sup></div>
           <div class="today-data-label">Temp. feels like</div>
         </div>
         <div class="today-data-container">
@@ -56,8 +56,8 @@ export function addSevenDayForecastToDOM() {
   const images = importAllImages(require.context("../img", false, /\.(png|jpe?g|svg)$/));
 
   container.innerHTML = "";
-  container.insertAdjacentHTML("afterbegin", '<div class="forecast-card-container"></div>');
 
+  container.insertAdjacentHTML("afterbegin", '<div class="forecast-card-container"></div>');
   const cardContainer = document.querySelector(".forecast-card-container");
 
   days.forEach((day) => {
@@ -69,10 +69,10 @@ export function addSevenDayForecastToDOM() {
         <div class="forecast-weather-icon">
           <img src="${images[`${day.icon}.svg`]}" class="weather-icon ${day.icon}" alt="${day.icon}" />
         </div>
-        <div class="forecast-temp">${day.temp}</div>
+        <div class="forecast-temp">${day.temp}<sup>&#176;F</sup></div>
         <div class="forecast-data-container">
           <div class="forecast-card-title">Temp. feels like</div>
-          <div class="forecast-card-value">${day.feelslikemax}</div>
+          <div class="forecast-card-value">${day.feelslikemax}<sup>&#176;F</sup></div>
         </div>
         <div class="forecast-data-container">
           <div class="forecast-card-title">Chance of precipitation</div>
