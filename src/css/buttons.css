@@ -1,0 +1,10 @@
+button {
+  border: none;
+  border-radius: 0;
+  font-size: inherit;
+  font-family: inherit;
+}
+
+button:hover {
+  cursor: pointer;
+}

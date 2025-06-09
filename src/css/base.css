@@ -1,0 +1,87 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+  background: var(--grey-900);
+  color: var(--body-font-colour);
+  font-family: var(--font-family);
+  background-color: var(--grey-100);
+  background: radial-gradient(circle, rgba(38, 38, 38, 1) 0%, rgba(0, 0, 0, 1) 100%);
+}
+
+main {
+  padding: 2.5rem;
+  position: relative;
+}
+
+h1 {
+  font-size: 2.986rem;
+}
+
+h2 {
+  font-size: 2.488rem;
+}
+
+h3 {
+  font-size: 2.074rem;
+}
+
+h4 {
+  font-size: 1.728rem;
+}
+
+h5 {
+  font-size: 1.44rem;
+}
+
+h6 {
+  font-size: 1.2rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+sup {
+  font-size: 0.75em;
+  vertical-align: text-top;
+}
+
+.weather-info {
+  gap: 4rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
+}
+
+.selected {
+  color: var(--grey-100);
+  background-color: var(--grey-900);
+}
+
+.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.hide {
+  display: none;
+  visibility: hidden;
+}
