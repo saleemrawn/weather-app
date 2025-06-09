@@ -44,7 +44,7 @@ export const weatherService = (function () {
   };
 
   const getSevenDayForecast = () => {
-    return getForecastData().days.slice(0, 7);
+    return getForecastData().days.slice(1, 8);
   };
 
   return {
