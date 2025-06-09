@@ -13,26 +13,38 @@ export function addTodayForecastToDOM() {
     "beforeend",
     `
     <div class="today-top-row">
-    <p>Today</p>
-    <p>${today.tempmax}</p>
-    <h1>${weatherService.getLocationName()}</h1>
-    <p><img src="${images[`${today.icon}.svg`]}" class="weather-icon ${today.icon}" alt="${
-      today.icon
-    }" />${weatherService.getTodayDescription()}</p>
+      <div class="today-date">${format(new Date(today.datetime), "EEEE co MMMM")}</div>
+      <div class="today-location-name">${weatherService.getLocationName()}</div>
     </div>
+
     <div class="today-bottom-row">
+      <div class="today-bottom-left-col">
+        <div class="today-temp">${today.tempmax}</div>
+        <div class="today-description"><img src="${images[`${today.icon}.svg`]}" class="weather-icon ${
+      today.icon
+    }" alt="${today.icon}" />${weatherService.getTodayDescription()}
+        </div>
+      </div>
+
+      <div class="today-bottom-right-col">
         <div class="temp-feel">
-          <p>Temp. feels like</p>
-          <p>${today.feelslikemax}</p>
+          <div class="temp-feel-value">${today.feelslikemax}</div>
+          <div class="temp-feel-label">Temp. feels like</div>
         </div>
         <div class="precip">
-          <p>Chance of precipitation</p>
-          <p>${today.precipprob}%</p>
+           <div class="precip-value">${today.precipprob}%</div>
+           <div class="precip-label">Chance of precipitation</div>
         </div>
         <div class="humidity">
-          <p>Humidity</p>
-          <p>${today.humidity}%</p>
+          <div class="humidity-value">${today.humidity}%</div>
+          <div class="humidity-label">Humidity</div>
         </div>
+        <div class="visibility">
+          <div class="visibility-value">${today.visibility}</div>
+          <div class="visibility-label">Visibility</div>
+        </div>
+      </div>
+
     </div>
     `
   );
@@ -44,9 +56,12 @@ export function addSevenDayForecastToDOM() {
   const images = importAllImages(require.context("../img", false, /\.(png|jpe?g|svg)$/));
 
   container.innerHTML = "";
+  container.insertAdjacentHTML("afterbegin", '<div class="forecast-card-container"></div>');
+
+  const cardContainer = document.querySelector(".forecast-card-container");
 
   days.forEach((day) => {
-    container.insertAdjacentHTML(
+    cardContainer.insertAdjacentHTML(
       "beforeend",
       `
       <div class="forecast-card">
