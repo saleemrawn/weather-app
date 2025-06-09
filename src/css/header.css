@@ -11,11 +11,11 @@ header {
 .logo {
   margin: 0;
   font-size: 24px;
-  font-weight: var(--heading-font-weight);
+  font-weight: var(--font-weight-semibold);
 }
 
 .logo span {
-  font-weight: 200;
+  font-weight: var(--font-weight-extralight);
 }
 
 #weather-form {
