@@ -1,16 +1,16 @@
 header {
   display: grid;
-  margin: 0 40px;
+  margin: 0 2.5rem;
   align-items: center;
   grid-template-rows: 1fr;
-  padding: 24px 0px 16px 0px;
+  padding: 1.5rem 0 1rem 0;
   grid-template-columns: 1fr 2fr 1fr;
   border-bottom: var(--border-style);
 }
 
 .logo {
   margin: 0;
-  font-size: 24px;
+  font-size: 1.44rem;
   font-weight: var(--font-weight-semibold);
 }
 
@@ -29,8 +29,8 @@ header {
   width: 100%;
   border: none;
   height: 100%;
-  font-size: 16px;
-  padding: 14px 16px;
+  font-size: 1rem;
+  padding: 0.875rem 1rem;
   color: var(--grey-50);
   background-color: transparent;
 }
@@ -62,17 +62,17 @@ header {
 }
 
 #search-button i {
-  right: 2px;
-  font-size: 16px;
+  right: 0.125rem;
+  font-size: 1rem;
   position: relative;
   color: var(--grey-100);
 }
 
 #clear-button {
   top: 0;
-  right: 46px;
+  right: 2.875rem;
   height: 100%;
-  font-size: 20px;
+  font-size: 1.2rem;
   position: absolute;
   background: transparent;
   width: var(--search-bar-height);
