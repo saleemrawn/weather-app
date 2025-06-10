@@ -1,4 +1,4 @@
-import { addSevenDayForecastToDOM, addTodayForecastToDOM, setSearchInputValue } from "./domController.js";
+import { addHourlyForecastToDOM, addTodayForecastToDOM, setSearchInputValue } from "./domController.js";
 import { getDataFromStorage } from "./storage.js";
 import { weatherService } from "./weather.js";
 
@@ -8,7 +8,7 @@ export async function loadApp() {
   await weatherService.fetchForecastData(getDataFromStorage("weatherLocation"));
   setSearchInputValue(weatherService.getLocationName());
   addTodayForecastToDOM();
-  addSevenDayForecastToDOM();
+  addHourlyForecastToDOM();
 }
 
 form.addEventListener("submit", (e) => {
@@ -23,5 +23,5 @@ async function handleSearchLocationEvent() {
   await weatherService.fetchForecastData(query);
   setSearchInputValue(weatherService.getLocationName());
   addTodayForecastToDOM();
-  addSevenDayForecastToDOM();
+  addHourlyForecastToDOM();
 }
