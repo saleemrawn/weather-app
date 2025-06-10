@@ -4,7 +4,7 @@
   grid-template-rows: auto 1fr;
 }
 
-.forecast-card-container {
+.seven-day-forecast-container {
   gap: 0.5rem;
   display: grid;
   grid-template-rows: 1fr;
@@ -18,8 +18,4 @@
   grid-auto-flow: column;
   grid-template-rows: 1fr;
   grid-template-columns: repeat(auto-fit, 150px);
-}
-
-.forecast-weather-container h2 {
-  font-size: 1.44rem;
 }

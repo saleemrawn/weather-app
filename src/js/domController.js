@@ -57,8 +57,8 @@ export function addSevenDayForecastToDOM() {
 
   container.innerHTML = "";
 
-  container.insertAdjacentHTML("afterbegin", '<div class="forecast-card-container"></div>');
-  const cardContainer = document.querySelector(".forecast-card-container");
+  container.insertAdjacentHTML("afterbegin", '<div class="seven-day-forecast-container"></div>');
+  const cardContainer = document.querySelector(".seven-day-forecast-container");
 
   days.forEach((day) => {
     cardContainer.insertAdjacentHTML(
