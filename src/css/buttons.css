@@ -8,3 +8,25 @@ button {
 button:hover {
   cursor: pointer;
 }
+
+.forecast-buttons-container {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 1fr;
+  border-bottom: 0.125rem solid var(--grey-50);
+}
+
+.hourly-button,
+.seven-day-button {
+  padding: 1rem;
+  color: inherit;
+  background-color: transparent;
+  font-weight: var(--font-weight-semibold);
+}
+
+.hourly-button:hover,
+.seven-day-button:hover,
+.selected {
+  color: var(--grey-900);
+  background-color: var(--grey-50);
+}
