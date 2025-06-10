@@ -5,6 +5,7 @@
 .today-weather-container {
   gap: 4rem;
   display: grid;
+  margin-bottom: 6rem;
   justify-content: center;
   grid-template-rows: auto auto;
   grid-template-columns: repeat(auto-fill, minmax(15.625rem, 60rem));
