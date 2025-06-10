@@ -7,8 +7,8 @@
   border-right: var(--border-style);
 }
 
-.forecast-card:last-child {
-  border-right: none;
+.forecast-card:first-child {
+  border-left: var(--border-style);
 }
 
 .forecast-data-container {
