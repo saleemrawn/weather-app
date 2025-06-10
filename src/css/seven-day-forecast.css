@@ -5,10 +5,19 @@
 }
 
 .forecast-card-container {
+  gap: 0.5rem;
   display: grid;
   grid-template-rows: 1fr;
   grid-template-columns: repeat(auto-fill, minmax(15.625rem, 1fr));
+}
+
+.hourly-forecast-container {
   gap: 0.5rem;
+  display: grid;
+  overflow-x: overlay;
+  grid-auto-flow: column;
+  grid-template-rows: 1fr;
+  grid-template-columns: repeat(auto-fit, 150px);
 }
 
 .forecast-weather-container h2 {
