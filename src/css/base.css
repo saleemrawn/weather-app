@@ -70,11 +70,6 @@ sup {
   grid-template-rows: auto 1fr;
 }
 
-.selected {
-  color: var(--grey-100);
-  background-color: var(--grey-900);
-}
-
 .visible {
   opacity: 1;
   visibility: visible;
