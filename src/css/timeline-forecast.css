@@ -14,8 +14,9 @@
 .hourly-forecast-container {
   gap: 0.5rem;
   display: grid;
-  overflow-x: overlay;
+  overflow-x: scroll;
   grid-auto-flow: column;
   grid-template-rows: 1fr;
+  scrollbar-color: var(--grey-400) transparent;
   grid-template-columns: repeat(auto-fit, 150px);
 }
