@@ -131,3 +131,17 @@ export function setSearchInputValue(val) {
   const search = document.getElementById("search");
   search.value = val;
 }
+
+export function toggleForecastButtonSelected() {
+  const hourlyButton = document.querySelector(".hourly-button");
+  const sevenDayButton = document.querySelector(".seven-day-button");
+
+  if (hourlyButton.classList.contains("selected")) {
+    hourlyButton.classList.remove("selected");
+    sevenDayButton.classList.add("selected");
+    return;
+  }
+
+  hourlyButton.classList.add("selected");
+  sevenDayButton.classList.remove("selected");
+}
