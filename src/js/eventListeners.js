@@ -17,12 +17,8 @@ export async function loadApp() {
   setSearchInputValue(weatherService.getLocationName());
   addTodayForecastToDOM();
   addHourlyForecastToDOM();
+  loadEventListeners();
 }
-
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
-  handleSearchLocationEvent();
-});
 
 async function handleSearchLocationEvent() {
   const formData = new FormData(form);
@@ -34,12 +30,19 @@ async function handleSearchLocationEvent() {
   addHourlyForecastToDOM();
 }
 
-hourlyButton.addEventListener("click", () => {
-  toggleForecastButtonSelected();
-  addHourlyForecastToDOM();
-});
+function loadEventListeners() {
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    handleSearchLocationEvent();
+  });
 
-sevenDayButton.addEventListener("click", () => {
-  toggleForecastButtonSelected();
-  addSevenDayForecastToDOM();
-});
+  hourlyButton.addEventListener("click", () => {
+    toggleForecastButtonSelected();
+    addHourlyForecastToDOM();
+  });
+
+  sevenDayButton.addEventListener("click", () => {
+    toggleForecastButtonSelected();
+    addSevenDayForecastToDOM();
+  });
+}
