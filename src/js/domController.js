@@ -150,3 +150,31 @@ export function toggleForecastButtonSelected() {
   hourlyButton.classList.add("selected");
   sevenDayButton.classList.remove("selected");
 }
+
+export function toggleTempUnitButton() {
+  const celciusButton = document.getElementById("celcius");
+  const fahrenheitButton = document.getElementById("fahrenheit");
+
+  if (localStorage.getItem("tempUnit") === "celcius") {
+    celciusButton.setAttribute("checked", "checked");
+    return;
+  }
+
+  fahrenheitButton.setAttribute("checked", "checked");
+}
+
+export function toggleCelciusValues() {
+  const celciusTemps = document.querySelectorAll(".celcius");
+  const fahrenheitTemps = document.querySelectorAll(".fahrenheit");
+
+  celciusTemps.forEach((temp) => temp.classList.remove("hide"));
+  fahrenheitTemps.forEach((temp) => temp.classList.add("hide"));
+}
+
+export function toggleFahrenheitValues() {
+  const celciusTemps = document.querySelectorAll(".celcius");
+  const fahrenheitTemps = document.querySelectorAll(".fahrenheit");
+
+  celciusTemps.forEach((temp) => temp.classList.add("hide"));
+  fahrenheitTemps.forEach((temp) => temp.classList.remove("hide"));
+}
