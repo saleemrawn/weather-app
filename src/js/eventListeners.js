@@ -3,9 +3,12 @@ import {
   addSevenDayForecastToDOM,
   addTodayForecastToDOM,
   setSearchInputValue,
+  toggleCelciusValues,
+  toggleFahrenheitValues,
   toggleForecastButtonSelected,
+  toggleTempUnitButton,
 } from "./domController.js";
-import { getDataFromStorage } from "./storage.js";
+import { getDataFromStorage, saveDataToStorage } from "./storage.js";
 import { weatherService } from "./weather.js";
 
 export async function loadApp() {
@@ -14,6 +17,7 @@ export async function loadApp() {
   addTodayForecastToDOM();
   addHourlyForecastToDOM();
   loadEventListeners();
+  loadTempUnit();
 }
 
 async function handleSearchLocationEvent() {
@@ -31,6 +35,8 @@ function loadEventListeners() {
   const form = document.getElementById("weather-form");
   const hourlyButton = document.querySelector(".hourly-button");
   const sevenDayButton = document.querySelector(".seven-day-button");
+  const celciusButton = document.getElementById("celcius");
+  const fahrenheitButton = document.getElementById("fahrenheit");
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -40,10 +46,39 @@ function loadEventListeners() {
   hourlyButton.addEventListener("click", () => {
     toggleForecastButtonSelected();
     addHourlyForecastToDOM();
+    loadTempUnit();
   });
 
   sevenDayButton.addEventListener("click", () => {
     toggleForecastButtonSelected();
     addSevenDayForecastToDOM();
+    loadTempUnit();
   });
+
+  celciusButton.addEventListener("click", () => {
+    toggleCelciusValues();
+    saveDataToStorage("tempUnit", "celcius");
+    loadTempUnit();
+  });
+
+  fahrenheitButton.addEventListener("click", () => {
+    toggleFahrenheitValues();
+    saveDataToStorage("tempUnit", "fahrenheit");
+    loadTempUnit();
+  });
+}
+
+function loadTempUnit() {
+  if (localStorage.getItem("tempUnit") === null || localStorage.getItem("tempUnit") === "celcius") {
+    toggleCelciusValues();
+    saveDataToStorage("tempUnit", "celsius");
+    toggleTempUnitButton();
+    return;
+  }
+
+  if (localStorage.getItem("tempUnit") === "fahrenheit") {
+    toggleFahrenheitValues();
+    toggleTempUnitButton();
+    return;
+  }
 }
