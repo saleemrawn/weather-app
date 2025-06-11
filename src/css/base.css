@@ -64,6 +64,15 @@ sup {
   vertical-align: text-top;
 }
 
+input[type="radio"] {
+  margin: 0;
+  padding: 0;
+}
+
+input[type="radio"]:hover {
+  cursor: pointer;
+}
+
 .weather-info {
   display: grid;
   grid-template-columns: 1fr;
