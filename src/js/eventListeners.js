@@ -1,6 +1,5 @@
 import {
   addHourlyForecastToDOM,
-  addSevenDayForecastToDOM,
   hideSearchOverlay,
   setSearchInputValue,
   showSearchOverlay,
@@ -12,6 +11,7 @@ import {
 import { loadForecastButtons } from "./forecast-buttons.js";
 import loadHeader from "./header.js";
 import loadTodayForecast from "./today-forecast.js";
+import loadSevenDayForecast from "./seven-day-forecast.js";
 import { getDataFromStorage, saveDataToStorage } from "./storage.js";
 import { weatherService } from "./weather.js";
 
@@ -85,7 +85,7 @@ function loadEventListeners() {
 
   sevenDayButton.addEventListener("click", () => {
     toggleForecastButtonSelected();
-    addSevenDayForecastToDOM();
+    loadSevenDayForecast();
     loadTempUnit();
   });
 
