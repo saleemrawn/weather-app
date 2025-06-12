@@ -18,16 +18,6 @@ header {
   font-weight: var(--font-weight-extralight);
 }
 
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus {
-  -webkit-box-shadow: transparent;
-  border-radius: var(--border-radius-100);
-  -webkit-text-fill-color: var(--body-font-colour);
-  transition: background-color 5000s ease-in-out 0s;
-  border: 1px solid var(--grey-600);
-}
-
 .unit-pref-container {
   gap: 1.5rem;
   display: flex;
