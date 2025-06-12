@@ -1,5 +1,4 @@
 import {
-  addHourlyForecastToDOM,
   hideSearchOverlay,
   setSearchInputValue,
   showSearchOverlay,
@@ -8,7 +7,7 @@ import {
   toggleForecastButtonSelected,
   toggleTempUnitButton,
 } from "./domController.js";
-import { loadForecastButtons } from "./forecast-buttons.js";
+import loadForecastButtons from "./forecast-buttons.js";
 import loadHeader from "./header.js";
 import loadTodayForecast from "./today-forecast.js";
 import loadHourlyForecast from "./hourly-forecast.js";

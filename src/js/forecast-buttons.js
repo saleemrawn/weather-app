@@ -1,4 +1,4 @@
-export function loadForecastButtons() {
+export default function loadForecastButtons() {
   const container = document.querySelector(".today-weather-container");
   container.insertAdjacentHTML(
     "afterend",
