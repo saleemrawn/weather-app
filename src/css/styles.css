@@ -2,6 +2,7 @@
 @import url(base.css);
 @import url(root.css);
 @import url(header.css);
+@import url(input.css);
 @import url(buttons.css);
 @import url(search.css);
 @import url(today-forecast.css);
