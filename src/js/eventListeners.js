@@ -11,6 +11,7 @@ import {
 import { loadForecastButtons } from "./forecast-buttons.js";
 import loadHeader from "./header.js";
 import loadTodayForecast from "./today-forecast.js";
+import loadHourlyForecast from "./hourly-forecast.js";
 import loadSevenDayForecast from "./seven-day-forecast.js";
 import { getDataFromStorage, saveDataToStorage } from "./storage.js";
 import { weatherService } from "./weather.js";
@@ -27,7 +28,7 @@ export async function loadApp() {
   setSearchInputValue(weatherService.getLocationName());
   loadForecastButtons();
   loadTodayForecast();
-  addHourlyForecastToDOM();
+  loadHourlyForecast();
   loadEventListeners();
   loadTempUnit();
 }
@@ -40,7 +41,7 @@ async function handleSearchLocationEvent() {
   await weatherService.fetchForecastData(query);
   setSearchInputValue(weatherService.getLocationName());
   loadTodayForecast();
-  addHourlyForecastToDOM();
+  loadHourlyForecast();
   loadTempUnit();
 }
 
@@ -54,7 +55,7 @@ async function handleSearchOverlayEvent() {
   setSearchInputValue(weatherService.getLocationName());
   loadForecastButtons();
   loadTodayForecast();
-  addHourlyForecastToDOM();
+  loadHourlyForecast();
   loadTempUnit();
   hideSearchOverlay();
 }
@@ -79,7 +80,7 @@ function loadEventListeners() {
 
   hourlyButton.addEventListener("click", () => {
     toggleForecastButtonSelected();
-    addHourlyForecastToDOM();
+    loadHourlyForecast();
     loadTempUnit();
   });
 
