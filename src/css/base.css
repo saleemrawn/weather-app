@@ -87,13 +87,3 @@ input[type="radio"]:hover {
   grid-template-columns: 1fr;
   grid-template-rows: auto 1fr;
 }
-
-.visible {
-  opacity: 1;
-  visibility: visible;
-}
-
-.hide {
-  display: none;
-  visibility: hidden;
-}
