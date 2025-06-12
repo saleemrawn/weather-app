@@ -35,6 +35,7 @@ async function handleSearchLocationEvent() {
   setSearchInputValue(weatherService.getLocationName());
   addTodayForecastToDOM();
   addHourlyForecastToDOM();
+  loadTempUnit();
 }
 
 function loadEventListeners() {
