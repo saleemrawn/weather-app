@@ -10,6 +10,7 @@ import {
   toggleForecastButtonSelected,
   toggleTempUnitButton,
 } from "./domController.js";
+import { loadForecastButtons } from "./forecast-buttons.js";
 import { getDataFromStorage, saveDataToStorage } from "./storage.js";
 import { weatherService } from "./weather.js";
 
@@ -22,6 +23,7 @@ export async function loadApp() {
 
   weatherService.setForecastData(getDataFromStorage("weatherData"));
   setSearchInputValue(weatherService.getLocationName());
+  loadForecastButtons();
   addTodayForecastToDOM();
   addHourlyForecastToDOM();
   loadEventListeners();
