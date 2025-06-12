@@ -18,78 +18,6 @@ header {
   font-weight: var(--font-weight-extralight);
 }
 
-#weather-form {
-  display: flex;
-  position: relative;
-  background-color: var(--grey-800);
-  border-radius: var(--border-radius-100);
-}
-
-#search {
-  width: 100%;
-  border: none;
-  height: 100%;
-  font-size: 1rem;
-  color: var(--grey-50);
-  padding: 0.875rem 1rem;
-  background-color: transparent;
-}
-
-#search:focus {
-  outline: none;
-}
-
-#search:focus {
-  border-radius: inherit;
-  background-color: var(--grey-900);
-}
-
-#search-button {
-  top: 0;
-  right: 0;
-  height: 100%;
-  position: absolute;
-  color: var(--grey-100);
-  background: transparent;
-  width: var(--search-bar-height);
-  border-left: var(--border-style);
-}
-
-#search-button:hover {
-  background-color: var(--grey-700);
-  border-top-right-radius: var(--border-radius-100);
-  border-bottom-right-radius: var(--border-radius-100);
-}
-
-#search-button i {
-  right: 0.125rem;
-  font-size: 1rem;
-  position: relative;
-  color: var(--grey-100);
-}
-
-#clear-button {
-  top: 0;
-  height: 100%;
-  right: 2.875rem;
-  font-size: 1.2rem;
-  position: absolute;
-  background: transparent;
-  width: var(--search-bar-height);
-}
-
-#clear-button:hover {
-  background-color: var(--grey-700);
-}
-
-#clear-button i {
-  color: var(--grey-100);
-}
-
-#search::-webkit-search-cancel-button {
-  display: none;
-}
-
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus {
@@ -97,6 +25,7 @@ input:-webkit-autofill:focus {
   border-radius: var(--border-radius-100);
   -webkit-text-fill-color: var(--body-font-colour);
   transition: background-color 5000s ease-in-out 0s;
+  border: 1px solid var(--grey-600);
 }
 
 .unit-pref-container {
