@@ -2,7 +2,9 @@ import {
   addHourlyForecastToDOM,
   addSevenDayForecastToDOM,
   addTodayForecastToDOM,
+  hideSearchOverlay,
   setSearchInputValue,
+  showSearchOverlay,
   toggleCelciusValues,
   toggleFahrenheitValues,
   toggleForecastButtonSelected,
@@ -38,8 +40,22 @@ async function handleSearchLocationEvent() {
   loadTempUnit();
 }
 
+async function handleSearchOverlayEvent() {
+  const form = document.getElementById("search-overlay-form");
+  const formData = new FormData(form);
+  const query = formData.get("search-overlay-input");
+
+  await weatherService.fetchForecastData(query);
+  setSearchInputValue(weatherService.getLocationName());
+  addTodayForecastToDOM();
+  addHourlyForecastToDOM();
+  loadTempUnit();
+  hideSearchOverlay();
+}
+
 function loadEventListeners() {
   const form = document.getElementById("weather-form");
+  const searchOverlayForm = document.getElementById("search-overlay-form");
   const hourlyButton = document.querySelector(".hourly-button");
   const sevenDayButton = document.querySelector(".seven-day-button");
   const celciusButton = document.getElementById("celcius");
@@ -48,6 +64,11 @@ function loadEventListeners() {
   form.addEventListener("submit", (e) => {
     e.preventDefault();
     handleSearchLocationEvent();
+  });
+
+  searchOverlayForm?.addEventListener("submit", (e) => {
+    e.preventDefault();
+    handleSearchOverlayEvent();
   });
 
   hourlyButton.addEventListener("click", () => {
