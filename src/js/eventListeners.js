@@ -12,7 +12,13 @@ import { getDataFromStorage, saveDataToStorage } from "./storage.js";
 import { weatherService } from "./weather.js";
 
 export async function loadApp() {
-  await weatherService.fetchForecastData(getDataFromStorage("weatherLocation"));
+  if (getDataFromStorage("weatherLocation") === null) {
+    showSearchOverlay();
+    loadEventListeners();
+    return;
+  }
+
+  weatherService.setForecastData(getDataFromStorage("weatherData"));
   setSearchInputValue(weatherService.getLocationName());
   addTodayForecastToDOM();
   addHourlyForecastToDOM();
