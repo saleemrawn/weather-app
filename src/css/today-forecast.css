@@ -1,5 +1,6 @@
 .today-location-name {
   font-weight: var(--font-weight-semibold);
+  font-size: 1.44rem;
 }
 
 .today-weather-container {
