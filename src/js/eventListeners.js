@@ -29,7 +29,7 @@ export async function loadApp() {
 }
 
 async function handleSearchLocationEvent() {
-  const form = document.getElementById("weather-form");
+  const form = document.getElementById("search-header-form");
   const formData = new FormData(form);
   const query = formData.get("search");
 
@@ -54,7 +54,7 @@ async function handleSearchOverlayEvent() {
 }
 
 function loadEventListeners() {
-  const form = document.getElementById("weather-form");
+  const form = document.getElementById("search-header-form");
   const searchOverlayForm = document.getElementById("search-overlay-form");
   const hourlyButton = document.querySelector(".hourly-button");
   const sevenDayButton = document.querySelector(".seven-day-button");
