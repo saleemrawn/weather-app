@@ -1,7 +1,6 @@
 import {
   addHourlyForecastToDOM,
   addSevenDayForecastToDOM,
-  addTodayForecastToDOM,
   hideSearchOverlay,
   setSearchInputValue,
   showSearchOverlay,
@@ -12,6 +11,7 @@ import {
 } from "./domController.js";
 import { loadForecastButtons } from "./forecast-buttons.js";
 import loadHeader from "./header.js";
+import loadTodayForecast from "./today-forecast.js";
 import { getDataFromStorage, saveDataToStorage } from "./storage.js";
 import { weatherService } from "./weather.js";
 
@@ -26,7 +26,7 @@ export async function loadApp() {
   loadHeader();
   setSearchInputValue(weatherService.getLocationName());
   loadForecastButtons();
-  addTodayForecastToDOM();
+  loadTodayForecast();
   addHourlyForecastToDOM();
   loadEventListeners();
   loadTempUnit();
@@ -39,7 +39,7 @@ async function handleSearchLocationEvent() {
 
   await weatherService.fetchForecastData(query);
   setSearchInputValue(weatherService.getLocationName());
-  addTodayForecastToDOM();
+  loadTodayForecast();
   addHourlyForecastToDOM();
   loadTempUnit();
 }
@@ -53,7 +53,7 @@ async function handleSearchOverlayEvent() {
   loadHeader();
   setSearchInputValue(weatherService.getLocationName());
   loadForecastButtons();
-  addTodayForecastToDOM();
+  loadTodayForecast();
   addHourlyForecastToDOM();
   loadTempUnit();
   hideSearchOverlay();
