@@ -11,6 +11,7 @@ import {
   toggleTempUnitButton,
 } from "./domController.js";
 import { loadForecastButtons } from "./forecast-buttons.js";
+import loadHeader from "./header.js";
 import { getDataFromStorage, saveDataToStorage } from "./storage.js";
 import { weatherService } from "./weather.js";
 
@@ -22,6 +23,7 @@ export async function loadApp() {
   }
 
   weatherService.setForecastData(getDataFromStorage("weatherData"));
+  loadHeader();
   setSearchInputValue(weatherService.getLocationName());
   loadForecastButtons();
   addTodayForecastToDOM();
