@@ -3,7 +3,11 @@ export function saveDataToStorage(key, value) {
 }
 
 export function getDataFromStorage(key) {
-  return typeof localStorage.getItem(key) === "string"
-    ? localStorage.getItem(key)
-    : JSON.parse(localStorage.getItem(key));
+  const value = localStorage.getItem(key);
+
+  if (value !== null && value.substring(0, 1) === "{" && value.substring(value.length - 1, value.length) === "}") {
+    return JSON.parse(value);
+  }
+
+  return value;
 }
