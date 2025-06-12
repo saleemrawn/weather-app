@@ -50,7 +50,9 @@ async function handleSearchOverlayEvent() {
   const query = formData.get("search-overlay-input");
 
   await weatherService.fetchForecastData(query);
+  loadHeader();
   setSearchInputValue(weatherService.getLocationName());
+  loadForecastButtons();
   addTodayForecastToDOM();
   addHourlyForecastToDOM();
   loadTempUnit();
@@ -65,7 +67,7 @@ function loadEventListeners() {
   const celciusButton = document.getElementById("celcius");
   const fahrenheitButton = document.getElementById("fahrenheit");
 
-  form.addEventListener("submit", (e) => {
+  form?.addEventListener("submit", (e) => {
     e.preventDefault();
     handleSearchLocationEvent();
   });
