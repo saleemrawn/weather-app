@@ -32,6 +32,7 @@ export async function loadApp() {
   loadHourlyForecast();
   loadEventListeners();
   loadTempUnit();
+  hideLoader();
 }
 
 async function handleSearchLocationEvent() {
