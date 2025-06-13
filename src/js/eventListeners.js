@@ -24,7 +24,7 @@ export async function loadApp() {
     return;
   }
 
-  weatherService.setForecastData(getDataFromStorage("weatherData"));
+  await weatherService.fetchForecastData(getDataFromStorage("weatherLocation"));
   loadHeader();
   setSearchInputValue(weatherService.getLocationName());
   loadForecastButtons();
