@@ -1,6 +1,8 @@
 import {
+  hideLoader,
   hideSearchOverlay,
   setSearchInputValue,
+  showLoader,
   showSearchOverlay,
   toggleCelciusValues,
   toggleFahrenheitValues,
@@ -37,11 +39,13 @@ async function handleSearchLocationEvent() {
   const formData = new FormData(form);
   const query = formData.get("search");
 
+  showLoader();
   await weatherService.fetchForecastData(query);
   setSearchInputValue(weatherService.getLocationName());
   loadTodayForecast();
   loadHourlyForecast();
   loadTempUnit();
+  hideLoader();
 }
 
 async function handleSearchOverlayEvent() {
@@ -49,6 +53,7 @@ async function handleSearchOverlayEvent() {
   const formData = new FormData(form);
   const query = formData.get("search-overlay-input");
 
+  showLoader();
   await weatherService.fetchForecastData(query);
   loadHeader();
   setSearchInputValue(weatherService.getLocationName());
@@ -57,6 +62,7 @@ async function handleSearchOverlayEvent() {
   loadHourlyForecast();
   loadTempUnit();
   hideSearchOverlay();
+  hideLoader();
 }
 
 function loadEventListeners() {
@@ -66,6 +72,8 @@ function loadEventListeners() {
   const sevenDayButton = document.querySelector(".seven-day-button");
   const celciusButton = document.getElementById("celcius");
   const fahrenheitButton = document.getElementById("fahrenheit");
+
+  window.addEventListener("load", () => hideLoader());
 
   form?.addEventListener("submit", (e) => {
     e.preventDefault();

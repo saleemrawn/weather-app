@@ -23,6 +23,16 @@ export function hideSearchOverlay() {
   overlay.classList.add("fade-out");
 }
 
+export function showLoader() {
+  const container = document.querySelector(".loader-container");
+  container.classList.remove("fade-out");
+}
+
+export function hideLoader() {
+  const container = document.querySelector(".loader-container");
+  container.classList.add("fade-out");
+}
+
 export function setSearchInputValue(val) {
   const search = document.getElementById("search");
   search.value = val;
