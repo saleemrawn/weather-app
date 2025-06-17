@@ -18,9 +18,10 @@ import { getDataFromStorage, saveDataToStorage } from "./storage.js";
 import { weatherService } from "./weather.js";
 
 export async function loadApp() {
+  loadEventListeners();
+
   if (getDataFromStorage("weatherLocation") === null) {
     showSearchOverlay();
-    loadEventListeners();
     return;
   }
 
@@ -30,7 +31,6 @@ export async function loadApp() {
   loadForecastButtons();
   loadTodayForecast();
   loadHourlyForecast();
-  loadEventListeners();
   loadTempUnit();
   hideLoader();
 }
@@ -67,47 +67,48 @@ async function handleSearchOverlayEvent() {
 }
 
 function loadEventListeners() {
-  const form = document.getElementById("search-header-form");
-  const searchOverlayForm = document.getElementById("search-overlay-form");
-  const hourlyButton = document.querySelector(".hourly-button");
-  const sevenDayButton = document.querySelector(".seven-day-button");
-  const celciusButton = document.getElementById("celcius");
-  const fahrenheitButton = document.getElementById("fahrenheit");
-
   window.addEventListener("load", () => hideLoader());
 
-  form?.addEventListener("submit", (e) => {
-    e.preventDefault();
+  addGlobalEventListener("submit", "#search-header-form", (event) => {
+    event.preventDefault();
     handleSearchLocationEvent();
   });
 
-  searchOverlayForm?.addEventListener("submit", (e) => {
-    e.preventDefault();
+  addGlobalEventListener("submit", "#search-overlay-form", (event) => {
+    event.preventDefault();
     handleSearchOverlayEvent();
   });
 
-  hourlyButton.addEventListener("click", () => {
+  addGlobalEventListener("click", ".hourly-button", () => {
     toggleForecastButtonSelected();
     loadHourlyForecast();
     loadTempUnit();
   });
 
-  sevenDayButton.addEventListener("click", () => {
+  addGlobalEventListener("click", ".seven-day-button", () => {
     toggleForecastButtonSelected();
     loadSevenDayForecast();
     loadTempUnit();
   });
 
-  celciusButton.addEventListener("click", () => {
+  addGlobalEventListener("click", "#celcius", () => {
     toggleCelciusValues();
     saveDataToStorage("tempUnit", "celcius");
     loadTempUnit();
   });
 
-  fahrenheitButton.addEventListener("click", () => {
+  addGlobalEventListener("click", "#fahrenheit", () => {
     toggleFahrenheitValues();
     saveDataToStorage("tempUnit", "fahrenheit");
     loadTempUnit();
+  });
+}
+
+function addGlobalEventListener(type, selector, callback, parent = document) {
+  parent.addEventListener(type, (event) => {
+    if (event.target.matches(selector)) {
+      callback(event);
+    }
   });
 }
 
