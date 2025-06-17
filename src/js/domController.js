@@ -21,6 +21,7 @@ export function showSearchOverlay() {
 export function hideSearchOverlay() {
   const overlay = document.querySelector(".search-overlay-container");
   overlay.classList.add("fade-out");
+  overlay.addEventListener("transitionend", () => overlay.remove());
 }
 
 export function showLoader() {
