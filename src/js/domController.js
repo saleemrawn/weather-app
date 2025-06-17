@@ -1,3 +1,5 @@
+import { getDataFromStorage } from "./storage";
+
 export function showSearchOverlay() {
   const container = document.querySelector("main");
 
@@ -64,12 +66,15 @@ export function toggleTempUnitButton() {
   const celciusButton = document.getElementById("celcius");
   const fahrenheitButton = document.getElementById("fahrenheit");
 
-  if (localStorage.getItem("tempUnit") === "celcius") {
+  if (getDataFromStorage("tempUnit") === "celcius") {
     celciusButton.setAttribute("checked", "checked");
     return;
   }
 
-  fahrenheitButton.setAttribute("checked", "checked");
+  if (getDataFromStorage("tempUnit") === "fahrenheit") {
+    fahrenheitButton.setAttribute("checked", "checked");
+    return;
+  }
 }
 
 export function toggleCelciusValues() {
