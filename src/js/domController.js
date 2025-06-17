@@ -24,13 +24,20 @@ export function hideSearchOverlay() {
 }
 
 export function showLoader() {
-  const container = document.querySelector(".loader-container");
-  container.classList.remove("fade-out");
+  const container = document.querySelector("body");
+  container.insertAdjacentHTML(
+    "beforebegin",
+    `<div class="loader-container">
+      <div class="loader"></div>
+    </div>`
+  );
 }
 
 export function hideLoader() {
   const container = document.querySelector(".loader-container");
+
   container.classList.add("fade-out");
+  container.addEventListener("transitionend", () => container.remove());
 }
 
 export function setSearchInputValue(val) {
