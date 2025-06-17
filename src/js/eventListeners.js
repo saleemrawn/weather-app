@@ -113,14 +113,14 @@ function addGlobalEventListener(type, selector, callback, parent = document) {
 }
 
 function loadTempUnit() {
-  if (localStorage.getItem("tempUnit") === null || localStorage.getItem("tempUnit") === "celcius") {
+  if (getDataFromStorage("tempUnit") === null || getDataFromStorage("tempUnit") === "celcius") {
     toggleCelciusValues();
     saveDataToStorage("tempUnit", "celsius");
     toggleTempUnitButton();
     return;
   }
 
-  if (localStorage.getItem("tempUnit") === "fahrenheit") {
+  if (getDataFromStorage("tempUnit") === "fahrenheit") {
     toggleFahrenheitValues();
     toggleTempUnitButton();
     return;
