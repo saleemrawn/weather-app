@@ -12,13 +12,8 @@ export function showBanner(error) {
 
 export function hideBannerAfterDelay() {
   const banner = document.querySelector(".banner-container");
-
-  setTimeout(() => {
-    banner.classList.add("fade-out");
-    setTimeout(() => {
-      banner.remove();
-    }, 500);
-  }, 3000);
+  setTimeout(() => banner.classList.add("fade-out"), 3000);
+  banner.addEventListener("transitionend", () => banner.remove());
 }
 
 function getFormattedError(error) {
