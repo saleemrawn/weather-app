@@ -1,3 +1,4 @@
+import { showBanner, hideBannerAfterDelay } from "./banner-notification.js";
 import { saveDataToStorage } from "./storage.js";
 
 export const weatherService = (function () {
@@ -19,7 +20,9 @@ export const weatherService = (function () {
 
       throw new Error(response.status);
     } catch (error) {
-      return error;
+      console.error(error);
+      showBanner(error);
+      hideBannerAfterDelay();
     }
   };
 
